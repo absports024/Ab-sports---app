@@ -2,67 +2,70 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07152d">
-<title>ABsports | Sports Streaming</title>
+<title>ABsports | Official Sports</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#071225;color:#fff}
-a{color:inherit;text-decoration:none}
+:root{--orange:#ff7918;--panel:#102342;--muted:#a9bad1}
+body{font-family:Arial,sans-serif;background:#071225;color:white}
+a{text-decoration:none;color:inherit}
 button,input,select{font:inherit}
 button{cursor:pointer}
-:root{--orange:#ff7918;--panel:#102342;--muted:#a9bad1}
-header{background:#0b1d3a;border-bottom:2px solid var(--orange);position:sticky;top:0;z-index:10}
-.nav{max-width:1200px;margin:auto;padding:15px 4%;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.logo{font-size:27px;font-weight:900;letter-spacing:1px}
+header{background:#0b1d3a;border-bottom:2px solid var(--orange);position:sticky;top:0;z-index:20}
+.nav{max-width:1200px;margin:auto;padding:14px 4%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:25px;font-weight:900;white-space:nowrap}
 .logo span{color:var(--orange)}
-nav{display:flex;gap:17px;flex-wrap:wrap}
+nav{display:flex;align-items:center;gap:18px}
 nav a{font-size:13px;color:#dce6f5}
 nav a:hover,.active{color:var(--orange)}
-.menu{display:none;background:none;color:white;border:0;font-size:25px}
+.menu-wrap{position:relative}
+.menu{background:none;border:0;color:white;font-size:28px;padding:0 8px}
+.dropdown{display:none;position:absolute;right:0;top:40px;background:#102342;border:1px solid #355071;border-radius:9px;min-width:165px;overflow:hidden}
+.dropdown.open{display:block}
+.dropdown a{display:block;padding:13px 16px}
+.dropdown a:hover{background:#203b60;color:var(--orange)}
 main{max-width:1200px;margin:auto;padding:0 4%}
-.hero{margin:25px 0 35px;padding:55px 20px;text-align:center;border-radius:16px;background:linear-gradient(120deg,#102c55,#071225);border:1px solid #23436c}
-.hero h1{font-size:clamp(30px,6vw,55px);font-weight:900}
+.page{display:none;padding:28px 0 45px}
+.page.show{display:block}
+.hero{margin:25px 0 35px;padding:60px 20px;text-align:center;border-radius:16px;background:linear-gradient(120deg,#102c55,#071225);border:1px solid #23436c}
+.hero h1{font-size:clamp(34px,7vw,58px)}
 .hero h1 span{color:var(--orange)}
 .hero p{color:var(--muted);margin-top:12px}
-.section{padding:20px 0 30px}
-.heading{font-size:24px;margin-bottom:20px;border-left:5px solid var(--orange);padding-left:12px}
-.subheading{font-size:18px;color:#ff9a4d;margin:18px 0 12px}
+.heading{font-size:24px;margin:15px 0 20px;border-left:5px solid var(--orange);padding-left:12px}
+.subheading{font-size:18px;color:#ff9a4d;margin:20px 0 12px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
 .card{background:var(--panel);border:1px solid #203b60;border-radius:12px;overflow:hidden}
-.thumb{height:180px;background:linear-gradient(135deg,#183f70,#09172e);position:relative;display:flex;align-items:center;justify-content:center}
+.thumb{height:180px;background:linear-gradient(135deg,#183f70,#09172e);display:flex;align-items:center;justify-content:center;position:relative}
 .thumb img{width:100%;height:100%;object-fit:cover}
-.play{font-size:36px;color:var(--orange)}
-.tag{position:absolute;top:12px;left:12px;background:#dc2525;padding:6px 10px;border-radius:4px;font-size:11px;font-weight:bold}
+.play{font-size:38px;color:var(--orange)}
+.tag{position:absolute;top:12px;left:12px;background:#d92525;padding:6px 10px;border-radius:4px;font-size:11px;font-weight:bold}
 .content{padding:15px}
 .content h3{font-size:17px;margin-bottom:8px}
 .content p{color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px}
 .btn{border:0;background:var(--orange);color:white;padding:11px 16px;border-radius:6px;font-weight:bold}
-.btn:hover{background:#e56508}
 .btn.secondary{background:#203b60}
 .btn.danger{background:#b92b35}
-.actions{display:flex;gap:8px;flex-wrap:wrap}
-.page{display:none;padding:28px 0 45px}
-.page.show{display:block}
-.player{width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;margin:15px 0}
+.player{width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;margin:18px 0}
 .player iframe{width:100%;height:100%;border:0}
-.player video{width:100%;height:100%}
 .field{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #355071;background:#091a32;color:white;border-radius:7px}
 label{font-size:13px;color:#dce6f5}
 .formbox{max-width:650px;background:var(--panel);border:1px solid #203b60;border-radius:12px;padding:20px;margin:15px 0}
-.notice{background:#102342;border:1px solid #29466c;padding:15px;border-radius:8px;color:var(--muted);line-height:1.7;margin:15px 0}
-.empty{color:var(--muted);padding:18px;background:var(--panel);border-radius:8px}
-footer{text-align:center;background:#0b1d3a;padding:25px;color:var(--muted);font-size:13px;border-top:1px solid #203b60}
-footer strong{color:var(--orange)}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){
- .menu{display:block}
- nav{display:none;position:absolute;top:65px;left:0;right:0;background:#0b1d3a;padding:18px;flex-direction:column}
- nav.open{display:flex}
- nav a{padding:8px}
+.notice,.empty{background:var(--panel);border:1px solid #29466c;padding:15px;border-radius:8px;color:var(--muted);line-height:1.7;margin:15px 0}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:15px 0 22px}
+footer{background:#0b1d3a;padding:30px 4%;text-align:center;border-top:2px solid var(--orange);color:var(--muted)}
+footer strong{color:var(--orange);font-size:22px}
+.socials{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:18px 0}
+.socials a{background:#102342;border:1px solid #355071;padding:11px 16px;border-radius:7px;color:white}
+.socials a:hover{border-color:var(--orange);color:var(--orange)}
+@media(max-width:700px){
+ .nav{padding:13px 3%;gap:8px}
+ nav{gap:10px}
+ nav a{font-size:11px}
  .grid{grid-template-columns:1fr}
- .hero{padding:40px 15px}
+ .hero{padding:42px 15px}
+ .filters{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -71,54 +74,70 @@ footer strong{color:var(--orange)}
 <header>
  <div class="nav">
   <a class="logo" href="#home">AB<span>SPORTS</span></a>
-  <button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
-  <nav id="nav">
+
+  <nav id="mainNav">
    <a href="#home">Home</a>
    <a href="#live">🔴 Live Sports</a>
    <a href="#highlights">Highlights</a>
-   <a href="#tournaments">Tournaments</a>
-   <a href="#teams">Teams</a>
-   <a href="#admin">Admin</a>
   </nav>
+
+  <div class="menu-wrap">
+   <button class="menu" id="menuButton" aria-label="Menu">⋮</button>
+   <div class="dropdown" id="dropdown">
+    <a href="#admin">Admin Panel</a>
+    <a href="#settings">Settings</a>
+   </div>
+  </div>
  </div>
 </header>
 
 <main>
+
 <section id="home" class="page show">
  <div class="hero">
   <h1>AB<span>SPORTS</span></h1>
-  <p>Your destination for Local Sports Live & Highlights</p>
+  <p>Your Destination for Local Sports Live & Highlights</p>
  </div>
- <section class="section">
-  <h2 class="heading">🔴 LIVE SPORTS</h2>
-  <div id="homeLive" class="grid"></div>
- </section>
- <section class="section">
-  <h2 class="heading">▶ MATCH HIGHLIGHTS</h2>
-  <div id="homeHighlights" class="grid"></div>
- </section>
+
+ <h2 class="heading">🔴 LIVE SPORTS</h2>
+ <div id="homeLive" class="grid"></div>
+
+ <h2 class="heading" style="margin-top:35px">▶ MATCH HIGHLIGHTS</h2>
+ <div id="homeHighlights" class="grid"></div>
 </section>
 
 <section id="live" class="page">
  <h2 class="heading">🔴 LIVE SPORTS</h2>
- <h3 class="subheading">🇧🇩 Local Live Matches</h3>
+ <h3 class="subheading">🇧🇩 Local Matches</h3>
+
+ <div class="filters">
+  <div>
+   <label for="liveTournamentFilter">Select Tournament</label>
+   <select id="liveTournamentFilter" class="field">
+    <option value="">All Tournaments</option>
+   </select>
+  </div>
+  <div>
+   <label for="liveTeamFilter">Select Team</label>
+   <select id="liveTeamFilter" class="field">
+    <option value="">All Teams</option>
+   </select>
+  </div>
+ </div>
+
  <div id="liveList" class="grid"></div>
+
+ <h3 class="subheading">🏆 Tournaments</h3>
+ <div id="tournamentList" class="grid"></div>
+
+ <h3 class="subheading">⚽ Teams</h3>
+ <div id="teamList" class="grid"></div>
 </section>
 
 <section id="highlights" class="page">
- <h2 class="heading">▶ HIGHLIGHTS</h2>
+ <h2 class="heading">▶ MATCH HIGHLIGHTS</h2>
  <h3 class="subheading">🇧🇩 Local Match Highlights</h3>
  <div id="highlightList" class="grid"></div>
-</section>
-
-<section id="tournaments" class="page">
- <h2 class="heading">🏆 Tournaments</h2>
- <div id="tournamentList" class="grid"></div>
-</section>
-
-<section id="teams" class="page">
- <h2 class="heading">⚽ Teams</h2>
- <div id="teamList" class="grid"></div>
 </section>
 
 <section id="watch" class="page">
@@ -128,11 +147,19 @@ footer strong{color:var(--orange)}
  <p id="watchInfo" style="color:var(--muted);line-height:1.8"></p>
 </section>
 
+<section id="settings" class="page">
+ <h2 class="heading">SETTINGS</h2>
+ <div class="notice">
+  <h3>ABsports Official</h3>
+  <p style="margin-top:10px">Local Sports Live & Highlights</p>
+  <p style="margin-top:8px">© 2026 ABsports</p>
+ </div>
+</section>
+
 <section id="admin" class="page">
  <h2 class="heading">ADMIN PANEL</h2>
  <div class="notice">
-  Admin হিসেবে লগইন করে Local Live, Highlights, Tournament ও Team যোগ করতে পারবি।
-  লাইভ সার্ভার সংযুক্ত হলে PRISM-এর সম্প্রচারও এখানে দেখানো যাবে।
+  Admin Login করে Live Sports, Highlights, Tournament ও Team যোগ করতে পারবে।
  </div>
 
  <div id="loginBox" class="formbox">
@@ -146,27 +173,32 @@ footer strong{color:var(--orange)}
  </div>
 
  <div id="adminPanel" style="display:none">
-  <div class="actions" style="margin-bottom:20px">
-   <button class="btn secondary" onclick="logout()">LOG OUT</button>
-  </div>
+  <button class="btn secondary" onclick="logout()">LOG OUT</button>
 
   <div class="formbox">
-   <h3>Add Live / Highlights</h3>
+   <h3>Add Live / Highlights Video</h3>
+
    <label>Video Type</label>
    <select id="videoType" class="field">
     <option value="live">Live Sports</option>
     <option value="highlight">Highlights</option>
    </select>
+
    <label>Tournament Name</label>
-   <input id="vTournament" class="field" placeholder="যেমন: Pragati Cup 2026">
+   <input id="vTournament" class="field" placeholder="Tournament name">
+
    <label>Team Names</label>
-   <input id="vTeams" class="field" placeholder="যেমন: Team A vs Team B">
+   <input id="vTeams" class="field" placeholder="Team A vs Team B">
+
    <label>Video Title</label>
-   <input id="vTitle" class="field" placeholder="ভিডিওর নাম">
-   <label>YouTube Video / Live Embed Link</label>
+   <input id="vTitle" class="field" placeholder="Video title">
+
+   <label>YouTube Video / Live Link</label>
    <input id="vUrl" class="field" placeholder="YouTube link">
+
    <label>Thumbnail Image URL (optional)</label>
    <input id="vImage" class="field" placeholder="Image link">
+
    <button class="btn" onclick="addVideo()">PUBLISH VIDEO</button>
    <p id="videoMessage" style="margin-top:12px;color:#ff9a4d"></p>
   </div>
@@ -187,130 +219,223 @@ footer strong{color:var(--orange)}
   <div id="manageVideos" class="grid"></div>
  </div>
 </section>
+
 </main>
 
 <footer>
  <strong>ABSPORTS</strong>
- <p style="margin-top:8px">Local Sports Live & Highlights</p>
+ <h3 style="color:white;margin-top:15px">Contact Us</h3>
+ <div class="socials">
+  <a href="https://wa.me/8801312245754" target="_blank" rel="noopener">WhatsApp</a>
+  <a href="https://www.facebook.com/share/1JJ9mHmurX/" target="_blank" rel="noopener">Facebook</a>
+  <a href="https://www.youtube.com/@ABSports024" target="_blank" rel="noopener">YouTube</a>
+ </div>
+ <p>Local Sports Live & Highlights</p>
  <p style="margin-top:8px">© 2026 ABsports. All Rights Reserved.</p>
 </footer>
 
+<!-- Navigation -->
+<script>
+const dropdown=document.getElementById("dropdown");
+
+document.getElementById("menuButton").addEventListener("click",()=>{
+ dropdown.classList.toggle("open");
+});
+
+function route(){
+ const id=(location.hash||"#home").slice(1);
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("show"));
+ const page=document.getElementById(id);
+ (page&&page.classList.contains("page")?page:document.getElementById("home")).classList.add("show");
+ dropdown.classList.remove("open");
+ window.scrollTo(0,0);
+}
+
+window.addEventListener("hashchange",route);
+
+document.addEventListener("click",e=>{
+ if(!e.target.closest(".menu-wrap"))dropdown.classList.remove("open");
+});
+
+route();
+</script>
+
+<!-- Firebase -->
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+import {initializeApp} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
 import {
- getFirestore, collection, addDoc, getDocs, query, where,
- orderBy, deleteDoc, doc, serverTimestamp
+ getFirestore,collection,addDoc,getDocs,query,where,
+ deleteDoc,doc,serverTimestamp
 } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 import {
- getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged
+ getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
 
-const firebaseConfig = {
- apiKey: "AIzaSyB_wjGaaDPBTMnu9l_exfte2CVC-pc_qAo",
- authDomain: "absports-official.firebaseapp.com",
- projectId: "absports-official",
- storageBucket: "absports-official.firebasestorage.app",
- messagingSenderId: "868147335497",
- appId: "1:868147335497:web:bd2d35210622ebbc36ca98"
+const firebaseConfig={
+ apiKey:"AIzaSyB_wjGaaDPBTMnu9l_exfte2CVC-pc_qAo",
+ authDomain:"absports-official.firebaseapp.com",
+ projectId:"absports-official",
+ storageBucket:"absports-official.firebasestorage.app",
+ messagingSenderId:"868147335497",
+ appId:"1:868147335497:web:bd2d35210622ebbc36ca98"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
+const app=initializeApp(firebaseConfig);
+const db=getFirestore(app);
+const auth=getAuth(app);
+const $=id=>document.getElementById(id);
 
-const $ = id => document.getElementById(id);
-let videos = [];
-let tournaments = [];
-let teams = [];
+let videos=[];
+let tournaments=[];
+let teams=[];
 
 function safeText(value=""){
- return String(value).replace(/[&<>"']/g, c => ({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ return String(value).replace(/[&<>"']/g,c=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
  }[c]));
 }
 
 function youtubeEmbed(url){
  try{
-  const u = new URL(url);
-  let id = "";
-  if(u.hostname.includes("youtu.be")) id = u.pathname.slice(1);
+  const u=new URL(url);
+  let id="";
+  if(u.hostname.includes("youtu.be"))id=u.pathname.slice(1);
   else if(u.hostname.includes("youtube.com")){
-   if(u.pathname === "/watch") id = u.searchParams.get("v");
-   else if(u.pathname.startsWith("/embed/")) id = u.pathname.split("/")[2];
-   else if(u.pathname.startsWith("/live/")) id = u.pathname.split("/")[2];
+   if(u.pathname==="/watch")id=u.searchParams.get("v");
+   else if(u.pathname.startsWith("/embed/")||u.pathname.startsWith("/live/"))
+    id=u.pathname.split("/")[2];
   }
-  if(!id || !/^[\w-]{11}$/.test(id)) return "";
-  return "https://www.youtube-nocookie.com/embed/" + id;
+  return /^[\w-]{11}$/.test(id)
+   ?"https://www.youtube-nocookie.com/embed/"+id:"";
  }catch(e){return ""}
 }
 
 function card(v){
- const image = v.thumbnail
-  ? `<img src="${safeText(v.thumbnail)}" alt="">`
-  : `<span class="play">▶</span>`;
- const label = v.type === "live" ? "🔴 LIVE" : "HIGHLIGHTS";
+ const image=v.thumbnail
+  ?`<img src="${safeText(v.thumbnail)}" alt="">`
+  :`<span class="play">▶</span>`;
+
+ const label=v.type==="live"?"🔴 LIVE":"HIGHLIGHTS";
+
  return `<article class="card">
   <div class="thumb">${image}<span class="tag">${label}</span></div>
   <div class="content">
    <h3>${safeText(v.title)}</h3>
-   <p>${safeText(v.tournament || "Local")}<br>${safeText(v.teams || "")}</p>
+   <p>${safeText(v.tournament||"Local")}<br>${safeText(v.teams||"")}</p>
    <button class="btn" onclick="watchVideo('${v.id}')">WATCH NOW ▶</button>
-  </div></article>`;
+  </div>
+ </article>`;
 }
 
-window.watchVideo = id => {
- const v = videos.find(x => x.id === id);
- if(!v) return;
- const embed = youtubeEmbed(v.videoUrl);
- $("watchTitle").textContent = v.title || "ABsports Video";
- $("watchInfo").textContent = (v.tournament || "") + " • " + (v.teams || "");
- $("videoPlayer").innerHTML = embed
-  ? `<iframe src="${embed}" title="ABsports video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`
-  : `<p style="padding:20px;color:white">এই ভিডিওর লিংকটি এখনো সংযুক্ত হয়নি।</p>`;
- location.hash = "watch";
+window.watchVideo=id=>{
+ const v=videos.find(x=>x.id===id);
+ if(!v)return;
+
+ const embed=youtubeEmbed(v.videoUrl);
+ $("watchTitle").textContent=v.title||"ABsports Video";
+ $("watchInfo").textContent=(v.tournament||"")+" • "+(v.teams||"");
+
+ $("videoPlayer").innerHTML=embed
+  ?`<iframe src="${embed}" title="ABsports video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`
+  :'<p style="padding:20px">ভিডিও লিংক পাওয়া যায়নি।</p>';
+
+ location.hash="watch";
 };
 
-function renderList(id, list){
- $(id).innerHTML = list.length ? list.map(card).join("") :
-  `<div class="empty">এখনো কোনো ভিডিও প্রকাশ করা হয়নি।</div>`;
+function renderList(id,list){
+ $(id).innerHTML=list.length
+  ?list.map(card).join("")
+  :'<div class="empty">এখনো কোনো ভিডিও প্রকাশ করা হয়নি।</div>';
 }
+
+function renderLive(){
+ const tournament=$("liveTournamentFilter").value;
+ const team=$("liveTeamFilter").value;
+
+ const list=videos.filter(v=>{
+  if(v.type!=="live")return false;
+  if(tournament&&v.tournament!==tournament)return false;
+  if(team&&!(v.teams||"").toLowerCase().includes(team.toLowerCase()))return false;
+  return true;
+ });
+
+ renderList("liveList",list);
+}
+
+function fillFilters(){
+ const tournamentSelect=$("liveTournamentFilter");
+ const teamSelect=$("liveTeamFilter");
+
+ const oldTournament=tournamentSelect.value;
+ const oldTeam=teamSelect.value;
+
+ tournamentSelect.innerHTML='<option value="">All Tournaments</option>';
+ [...new Set([
+  ...tournaments.map(x=>x.name),
+  ...videos.filter(v=>v.type==="live").map(v=>v.tournament)
+ ].filter(Boolean))].sort().forEach(name=>{
+  tournamentSelect.add(new Option(name,name));
+ });
+
+ teamSelect.innerHTML='<option value="">All Teams</option>';
+ [...new Set([
+  ...teams.map(x=>x.name),
+  ...videos.filter(v=>v.type==="live").flatMap(v=>(v.teams||"").split(/\s+vs\s+/i))
+ ].filter(Boolean))].sort().forEach(name=>{
+  teamSelect.add(new Option(name,name));
+ });
+
+ tournamentSelect.value=oldTournament;
+ teamSelect.value=oldTeam;
+}
+
+$("liveTournamentFilter").addEventListener("change",renderLive);
+$("liveTeamFilter").addEventListener("change",renderLive);
 
 async function loadVideos(){
  try{
-  const q = query(collection(db,"videos"),where("published","==",true));
-  const snap = await getDocs(q);
-  videos = snap.docs.map(d=>({id:d.id,...d.data()}));
-  renderList("liveList",videos.filter(v=>v.type==="live"));
-  renderList("highlightList",videos.filter(v=>v.type==="highlight"));
+  const snap=await getDocs(query(collection(db,"videos"),where("published","==",true)));
+  videos=snap.docs.map(d=>({id:d.id,...d.data()}));
+
   renderList("homeLive",videos.filter(v=>v.type==="live").slice(0,3));
   renderList("homeHighlights",videos.filter(v=>v.type==="highlight").slice(0,3));
-  if(auth.currentUser) renderManage();
+  renderList("highlightList",videos.filter(v=>v.type==="highlight"));
+
+  fillFilters();
+  renderLive();
+
+  if(auth.currentUser)renderManage();
  }catch(e){
   console.error(e);
-  ["liveList","highlightList","homeLive","homeHighlights"].forEach(id=>{
-   $(id).innerHTML='<div class="empty">ভিডিও লোড করা যায়নি। Firebase Rules পরীক্ষা করতে হবে।</div>';
+  ["homeLive","homeHighlights","liveList","highlightList"].forEach(id=>{
+   $(id).innerHTML='<div class="empty">ভিডিও লোড করা যায়নি। Firebase Rules পরীক্ষা করো।</div>';
   });
  }
 }
 
 async function loadOther(){
  try{
-  const [ts,ss] = await Promise.all([
+  const [ts,ss]=await Promise.all([
    getDocs(collection(db,"tournaments")),
    getDocs(collection(db,"teams"))
   ]);
-  tournaments = ts.docs.map(d=>d.data());
-  teams = ss.docs.map(d=>d.data());
-  $("tournamentList").innerHTML = tournaments.length
-   ? tournaments.map(x=>`<article class="card content"><h3>🏆 ${safeText(x.name)}</h3></article>`).join("")
-   : '<div class="empty">এখনো টুর্নামেন্ট যোগ করা হয়নি।</div>';
-  $("teamList").innerHTML = teams.length
-   ? teams.map(x=>`<article class="card content"><h3>⚽ ${safeText(x.name)}</h3></article>`).join("")
-   : '<div class="empty">এখনো কোনো দল যোগ করা হয়নি।</div>';
+
+  tournaments=ts.docs.map(d=>({id:d.id,...d.data()}));
+  teams=ss.docs.map(d=>({id:d.id,...d.data()}));
+
+  $("tournamentList").innerHTML=tournaments.length
+   ?tournaments.map(x=>`<article class="card content"><h3>🏆 ${safeText(x.name)}</h3></article>`).join("")
+   :'<div class="empty">এখনো কোনো টুর্নামেন্ট যোগ করা হয়নি।</div>';
+
+  $("teamList").innerHTML=teams.length
+   ?teams.map(x=>`<article class="card content"><h3>⚽ ${safeText(x.name)}</h3></article>`).join("")
+   :'<div class="empty">এখনো কোনো দল যোগ করা হয়নি।</div>';
+
+  fillFilters();
  }catch(e){console.error(e)}
 }
 
-window.login = async ()=>{
+window.login=async()=>{
  $("loginMessage").textContent="লগইন হচ্ছে...";
  try{
   await signInWithEmailAndPassword(auth,$("email").value,$("password").value);
@@ -320,23 +445,29 @@ window.login = async ()=>{
  }
 };
 
-window.logout = ()=>signOut(auth);
+window.logout=()=>signOut(auth);
 
 onAuthStateChanged(auth,user=>{
- $("loginBox").style.display = user ? "none":"block";
- $("adminPanel").style.display = user ? "block":"none";
- if(user) renderManage();
+ $("loginBox").style.display=user?"none":"block";
+ $("adminPanel").style.display=user?"block":"none";
+ if(user)renderManage();
 });
 
-window.addVideo = async ()=>{
+window.addVideo=async()=>{
  const title=$("vTitle").value.trim();
  const url=$("vUrl").value.trim();
  const type=$("videoType").value;
- if(!title || !url){$("videoMessage").textContent="ভিডিওর নাম ও লিংক দে।";return}
- if(!youtubeEmbed(url)){
-  $("videoMessage").textContent="সঠিক YouTube ভিডিও/লাইভ লিংক দে।";
+
+ if(!title||!url){
+  $("videoMessage").textContent="ভিডিওর নাম ও লিংক দাও।";
   return;
  }
+
+ if(!youtubeEmbed(url)){
+  $("videoMessage").textContent="সঠিক YouTube লিংক দাও।";
+  return;
+ }
+
  try{
   await addDoc(collection(db,"videos"),{
    title,
@@ -349,15 +480,20 @@ window.addVideo = async ()=>{
    published:true,
    createdAt:serverTimestamp()
   });
+
   $("videoMessage").textContent="ভিডিও প্রকাশ হয়েছে!";
   ["vTitle","vUrl","vTournament","vTeams","vImage"].forEach(id=>$(id).value="");
+
   await loadVideos();
- }catch(e){$("videoMessage").textContent="সমস্যা: "+e.message}
+ }catch(e){
+  $("videoMessage").textContent="সমস্যা: "+e.message;
+ }
 };
 
-window.addTournament = async ()=>{
+window.addTournament=async()=>{
  const name=$("tName").value.trim();
- if(!name)return alert("টুর্নামেন্টের নাম দে");
+ if(!name)return alert("টুর্নামেন্টের নাম দাও");
+
  try{
   await addDoc(collection(db,"tournaments"),{name,createdAt:serverTimestamp()});
   $("tName").value="";
@@ -365,9 +501,10 @@ window.addTournament = async ()=>{
  }catch(e){alert(e.message)}
 };
 
-window.addTeam = async ()=>{
+window.addTeam=async()=>{
  const name=$("teamName").value.trim();
- if(!name)return alert("দলের নাম দে");
+ if(!name)return alert("দলের নাম দাও");
+
  try{
   await addDoc(collection(db,"teams"),{name,createdAt:serverTimestamp()});
   $("teamName").value="";
@@ -375,40 +512,29 @@ window.addTeam = async ()=>{
  }catch(e){alert(e.message)}
 };
 
-async function renderManage(){
+function renderManage(){
  if(!auth.currentUser)return;
- const own = videos;
- $("manageVideos").innerHTML = own.length ? own.map(v=>`
-  <article class="card content">
-   <h3>${safeText(v.title)}</h3>
-   <p>${safeText(v.type)} • ${safeText(v.tournament || "")}</p>
-   <button class="btn danger" onclick="deleteVideo('${v.id}')">DELETE</button>
-  </article>`).join("") : '<div class="empty">কোনো ভিডিও নেই।</div>';
+
+ $("manageVideos").innerHTML=videos.length
+  ?videos.map(v=>`
+   <article class="card content">
+    <h3>${safeText(v.title)}</h3>
+    <p>${safeText(v.type)} • ${safeText(v.tournament||"")}</p>
+    <button class="btn danger" onclick="deleteVideo('${v.id}')">DELETE</button>
+   </article>`).join("")
+  :'<div class="empty">কোনো ভিডিও নেই।</div>';
 }
 
-window.deleteVideo = async id=>{
- if(!confirm("ভিডিওটি মুছে ফেলবি?"))return;
+window.deleteVideo=async id=>{
+ if(!confirm("ভিডিওটি মুছে ফেলবে?"))return;
  try{
   await deleteDoc(doc(db,"videos",id));
   await loadVideos();
  }catch(e){alert(e.message)}
 };
 
-function route(){
- const id=(location.hash||"#home").slice(1);
- document.querySelectorAll(".page").forEach(p=>p.classList.remove("show"));
- const page=$(id);
- (page || $("home")).classList.add("show");
- document.querySelectorAll("nav a").forEach(a=>{
-  a.classList.toggle("active",a.getAttribute("href")==="#"+id);
- });
- $("nav").classList.remove("open");
- window.scrollTo(0,0);
-}
-window.addEventListener("hashchange",route);
-route();
 loadVideos();
 loadOther();
 </script>
 </body>
-   </html>
+ </html>
