@@ -3,446 +3,300 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#071426">
-<meta name="description" content="ABsports - সবধরনের খেলার সর্বশেষ আপডেট, ফুটবল, ক্রিকেট ও লাইভ কভারেজ।">
-<title>ABsports | Official Sports News</title>
-
+<title>ABsports | Sports News & Live Coverage</title>
+<meta name="description" content="ABsports - সর্বশেষ ফুটবল, ক্রিকেট, স্থানীয় টুর্নামেন্ট ও খেলোয়াড়দের খবর।">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&display=swap');
-
 :root{
- --bg:#071426;
- --panel:#10233c;
- --panel2:#142b47;
- --orange:#ff8a24;
- --white:#ffffff;
- --muted:#a9b8ca;
- --line:rgba(255,255,255,.09);
+  --bg:#071525;
+  --panel:#10243a;
+  --line:#203b56;
+  --text:#f4f7fb;
+  --muted:#a9bbce;
+  --orange:#ff9d24;
+  --blue:#1676d2;
 }
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
- font-family:'Hind Siliguri',Arial,sans-serif;
- background:var(--bg);
- color:var(--white);
- line-height:1.6;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  line-height:1.6;
 }
 a{text-decoration:none;color:inherit}
-.container{width:92%;max-width:1150px;margin:auto}
-
-/* HEADER */
+.container{width:min(1120px,92%);margin:auto}
 header{
- background:#091a30;
- border-bottom:1px solid var(--line);
- position:sticky;top:0;z-index:100;
+  background:#0b1d30;
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:10;
 }
-.topbar{
- display:flex;align-items:center;
- justify-content:space-between;
- min-height:76px;gap:15px;
+.nav{
+  min-height:70px;
+  display:flex;align-items:center;
+  justify-content:space-between;gap:15px;
 }
-.logo{font-size:29px;font-weight:800;letter-spacing:-1px}
-.logo b{color:var(--orange)}
-.logo small{display:block;font-size:10px;color:var(--muted);letter-spacing:2px;font-weight:500}
-.menu{display:flex;gap:25px;align-items:center}
-.menu a{font-size:14px;color:#dce6f2;transition:.2s}
-.menu a:hover{color:var(--orange)}
-.menu .contact{
- background:var(--orange);color:#101d2d;
- padding:9px 16px;border-radius:7px;font-weight:700;
+.logo{font-size:26px;font-weight:900;color:white}
+.logo span{color:var(--orange)}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{font-size:14px;color:#dce7f2}
+nav a:hover{color:var(--orange)}
+.hero{padding:65px 0 45px}
+.hero-box{
+  background:linear-gradient(120deg,#153b61,#10243a);
+  border:1px solid var(--line);
+  border-radius:18px;padding:35px;
 }
-
-/* BREAKING BAR */
-.breaking{
- background:#e84b36;
- overflow:hidden;
+.eyebrow{color:var(--orange);font-weight:bold;font-size:13px}
+h1{font-size:clamp(29px,5vw,47px);line-height:1.3;margin:13px 0}
+.hero p{color:#d0dbea;max-width:650px}
+.btn{
+  display:inline-block;background:var(--orange);
+  color:#152235;padding:11px 19px;
+  border-radius:7px;font-weight:bold;margin-top:20px;
 }
-.breaking-inner{
- display:flex;align-items:center;gap:15px;
- padding:8px 0;font-size:13px;
-}
-.breaking strong{white-space:nowrap}
-.breaking span{color:white}
-
-/* HERO */
-.hero{padding:38px 0 25px}
-.hero-grid{
- display:grid;grid-template-columns:1.6fr 1fr;gap:20px;
-}
-.hero-main{
- min-height:340px;
- background:linear-gradient(90deg,rgba(3,13,26,.96),rgba(3,13,26,.25)),
- linear-gradient(135deg,#17446d,#091a30);
- border:1px solid var(--line);
- border-radius:15px;
- padding:30px;
- display:flex;flex-direction:column;justify-content:flex-end;
- position:relative;overflow:hidden;
-}
-.hero-main:before{
- content:"⚽";position:absolute;right:25px;top:30px;
- font-size:125px;opacity:.12;
-}
-.eyebrow{
- color:var(--orange);font-size:12px;
- font-weight:800;letter-spacing:1.5px;
-}
-.hero-main h1{
- font-size:clamp(27px,4vw,43px);
- line-height:1.3;margin:12px 0;
- max-width:650px;
-}
-.hero-main p{color:#d0dbea;font-size:14px;max-width:550px}
-.primary-btn{
- display:inline-block;background:var(--orange);
- color:#111d2b;padding:11px 20px;
- border-radius:7px;font-weight:800;
- margin-top:19px;width:max-content;
-}
-.hero-side{display:grid;gap:15px}
-.side-card{
- background:var(--panel);border:1px solid var(--line);
- border-radius:13px;padding:20px;
- display:flex;flex-direction:column;justify-content:center;
- min-height:160px;
-}
-.side-card .symbol{font-size:28px;margin-bottom:7px}
-.side-card h3{font-size:19px;margin-bottom:5px}
-.side-card p{font-size:13px;color:var(--muted)}
-
-/* SECTION */
-.section{padding:27px 0}
+.section{padding:30px 0}
 .section-head{
- display:flex;align-items:center;
- justify-content:space-between;
- border-bottom:1px solid var(--line);
- padding-bottom:12px;margin-bottom:18px;
+  display:flex;justify-content:space-between;
+  align-items:center;gap:12px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:12px;margin-bottom:20px;
 }
 .section-head h2{font-size:23px}
-.section-head h2:before{
- content:"";display:inline-block;width:5px;height:22px;
- background:var(--orange);margin-right:10px;
- vertical-align:-4px;border-radius:5px;
-}
 .section-head span{font-size:12px;color:var(--orange)}
-
-/* NEWS */
 .news-grid{
- display:grid;grid-template-columns:repeat(3,1fr);gap:17px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:17px;
 }
-.news-card{
- background:var(--panel);border:1px solid var(--line);
- border-radius:12px;overflow:hidden;transition:.25s;
+.news-card,.info-card,.match-card{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:12px;overflow:hidden;
 }
+.news-card{transition:.2s}
 .news-card:hover{transform:translateY(-4px);border-color:var(--orange)}
 .news-image{
- height:155px;display:flex;align-items:center;
- justify-content:center;font-size:55px;
- background:linear-gradient(135deg,#173d62,#0b1c32);
+  height:155px;display:flex;align-items:center;
+  justify-content:center;font-size:50px;
+  background:linear-gradient(135deg,#173d62,#0b1c32);
 }
 .news-content{padding:17px}
-.category{
- display:inline-block;color:var(--orange);
- font-size:11px;font-weight:800;
- margin-bottom:8px;
-}
-.news-content h3{font-size:18px;line-height:1.45;margin-bottom:8px}
-.news-content p{font-size:13px;color:var(--muted)}
-
-/* LIVE */
+.category{color:var(--orange);font-size:11px;font-weight:bold}
+.news-content h3{font-size:18px;line-height:1.5;margin:7px 0}
+.news-content p,.muted{font-size:13px;color:var(--muted)}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.info-card{padding:20px}
+.info-card h3{margin-bottom:7px}
 .live-box{
- background:linear-gradient(120deg,#152e4d,#0d1e33);
- border:1px solid var(--line);
- border-radius:14px;padding:25px;
- display:flex;align-items:center;
- justify-content:space-between;gap:20px;
+  background:linear-gradient(120deg,#17385a,#10243a);
+  border:1px solid var(--line);border-radius:14px;padding:25px;
 }
-.live-label{color:#ff5d55;font-weight:800;font-size:12px}
-.live-box h2{font-size:25px;margin:7px 0}
-.live-box p{color:var(--muted);font-size:14px}
-.live-icon{font-size:65px;opacity:.9}
-
-/* MATCH */
+.live-label{color:#ff665e;font-weight:bold;font-size:12px}
 .match-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.match-card{
- background:var(--panel);border:1px solid var(--line);
- border-radius:12px;padding:20px;text-align:center;
-}
-.match-card h3{font-size:17px;margin-bottom:10px}
-.match-card p{font-size:13px;color:var(--muted)}
-.match-status{
- display:inline-block;color:var(--orange);
- font-size:11px;font-weight:800;
- margin-top:12px;
-}
-
-/* PLAYER */
-.player-box{
- background:linear-gradient(110deg,#17395b,#10233c);
- border-radius:14px;padding:25px;
- display:flex;align-items:center;gap:20px;
-}
-.player-icon{font-size:58px}
-.player-box h3{font-size:21px}
-.player-box p{font-size:14px;color:var(--muted)}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.contact-card{
- background:var(--panel);padding:20px;
- border:1px solid var(--line);border-radius:12px;
-}
-.contact-card h3{font-size:17px;margin-bottom:6px}
-.contact-card p{font-size:13px;color:var(--muted)}
-
-/* FOOTER */
+.match-card{padding:20px;text-align:center}
+.match-card h3{margin-bottom:8px}
 footer{
- margin-top:35px;padding:35px 0 20px;
- background:#040d19;border-top:1px solid var(--line);
+  margin-top:40px;background:#091827;
+  border-top:1px solid var(--line);padding:30px 0;
 }
-.footer-row{
- display:flex;justify-content:space-between;
- align-items:center;gap:20px;flex-wrap:wrap;
-}
-footer p{font-size:13px;color:var(--muted);margin-top:8px}
-.footer-bottom{
- border-top:1px solid var(--line);
- margin-top:25px;padding-top:15px;
- text-align:center;font-size:12px;color:#8293a8;
-}
-
-/* MOBILE */
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer p{color:var(--muted);font-size:13px}
+footer a{color:var(--orange)}
 @media(max-width:750px){
- .topbar{padding:13px 0;align-items:flex-start;flex-direction:column}
- .menu{width:100%;gap:19px;overflow-x:auto;padding-bottom:7px}
- .menu a{white-space:nowrap;font-size:13px}
- .hero-grid{grid-template-columns:1fr}
- .hero-main{min-height:310px;padding:22px}
- .hero-side{grid-template-columns:1fr 1fr}
- .side-card{padding:14px;min-height:145px}
- .side-card h3{font-size:16px}
- .news-grid{grid-template-columns:1fr 1fr;gap:10px}
- .news-image{height:110px;font-size:40px}
- .news-content{padding:12px}
- .news-content h3{font-size:15px}
- .news-content p{font-size:12px}
- .match-grid{grid-template-columns:1fr}
- .live-box{padding:19px}
- .live-icon{font-size:42px}
- .contact-grid{grid-template-columns:1fr}
- .section-head h2{font-size:20px}
-}
-@media(max-width:390px){
- .news-grid{grid-template-columns:1fr}
- .hero-side{grid-template-columns:1fr}
+  .nav{padding:12px 0;align-items:flex-start;flex-direction:column}
+  nav{gap:12px}
+  .news-grid,.info-grid{grid-template-columns:1fr}
+  .match-grid{grid-template-columns:1fr}
+  .hero{padding-top:30px}
+  .hero-box{padding:24px}
 }
 </style>
 </head>
-
 <body>
 
 <header>
- <div class="container topbar">
-  <a href="#home">
-   <div class="logo">AB<b>SPORTS</b>
-    <small>OFFICIAL SPORTS NETWORK</small>
-   </div>
-  </a>
-  <nav class="menu">
-   <a href="#home">হোম</a>
-   <a href="#news">নিউজ</a>
-   <a href="#live">লাইভ</a>
-   <a href="#match">ম্যাচ</a>
-   <a href="#players">খেলোয়াড়</a>
-   <a href="#contact" class="contact">যোগাযোগ</a>
-  </nav>
- </div>
+  <div class="container nav">
+    <a class="logo" href="#home">AB<span>SPORTS</span></a>
+    <nav>
+      <a href="#home">হোম</a>
+      <a href="#news">নিউজ</a>
+      <a href="#live">লাইভ</a>
+      <a href="#matches">ম্যাচ</a>
+      <a href="#players">খেলোয়াড়</a>
+      <a href="#contact">যোগাযোগ</a>
+    </nav>
+  </div>
 </header>
 
-<div class="breaking">
- <div class="container breaking-inner">
-  <strong>AB SPORTS UPDATE</strong>
-  <span>সবধরনের খেলার সর্বশেষ আপডেট পেতে চোখ রাখুন ABsports-এ</span>
- </div>
-</div>
-
 <main id="home">
- <section class="hero">
-  <div class="container hero-grid">
-
-   <div class="hero-main">
-    <span class="eyebrow">WELCOME TO ABSPORTS</span>
-    <h1>খেলার মাঠ থেকে সর্বশেষ সংবাদ, এক ঠিকানায়</h1>
-    <p>ফুটবল, ক্রিকেট, স্থানীয় টুর্নামেন্ট, খেলোয়াড়দের গল্প ও বিশেষ প্রতিবেদন নিয়ে ABsports আছে আপনার পাশে।</p>
-    <a class="primary-btn" href="#news">সর্বশেষ খবর দেখুন →</a>
-   </div>
-
-   <div class="hero-side">
-    <div class="side-card">
-     <div class="symbol">⚽</div>
-     <h3>Football News</h3>
-     <p>দেশ-বিদেশের ফুটবল সংবাদ ও স্থানীয় টুর্নামেন্ট।</p>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <span class="eyebrow">WELCOME TO ABSPORTS</span>
+        <h1>খেলার মাঠ থেকে সর্বশেষ সংবাদ, এক ঠিকানায়</h1>
+        <p>ফুটবল, ক্রিকেট, স্থানীয় টুর্নামেন্ট, খেলোয়াড়দের গল্প ও বিশেষ প্রতিবেদন নিয়ে সবসময় আপনার পাশে ABsports।</p>
+        <a class="btn" href="#news">সর্বশেষ খবর দেখুন →</a>
+      </div>
     </div>
-    <div class="side-card">
-     <div class="symbol">🏏</div>
-     <h3>Cricket Updates</h3>
-     <p>ক্রিকেটের খবর, ম্যাচ ও গুরুত্বপূর্ণ আপডেট।</p>
+  </section>
+
+  <section class="section" id="news">
+    <div class="container">
+      <div class="section-head">
+        <h2>সর্বশেষ স্পোর্টস নিউজ</h2>
+        <span>LATEST NEWS</span>
+      </div>
+      <div class="news-grid" id="firebase-news">
+        <p class="muted">নিউজ লোড হচ্ছে...</p>
+      </div>
     </div>
-   </div>
+  </section>
 
-  </div>
- </section>
-
- <section class="section" id="news">
-  <div class="container">
-   <div class="section-head">
-    <h2>সর্বশেষ স্পোর্টস নিউজ</h2>
-    <span>LATEST NEWS</span>
-   </div>
-
-   <div class="news-grid">
-    <article class="news-card">
-     <div class="news-image">⚽</div>
-     <div class="news-content">
-      <span class="category">FOOTBALL</span>
-      <h3>স্থানীয় ফুটবলের নতুন খবর জানতে চোখ রাখুন ABsports-এ</h3>
-      <p>টুর্নামেন্ট, ম্যাচ ও ফুটবলারদের নানা খবর নিয়ে আসছে ABsports।</p>
-     </div>
-    </article>
-
-    <article class="news-card">
-     <div class="news-image">🏆</div>
-     <div class="news-content">
-      <span class="category">TOURNAMENT</span>
-      <h3>আপনার এলাকার টুর্নামেন্টের আপডেট থাকছে এক জায়গায়</h3>
-      <p>খেলার মাঠের গুরুত্বপূর্ণ মুহূর্ত ও আয়োজনের খবর।</p>
-     </div>
-    </article>
-
-    <article class="news-card">
-     <div class="news-image">🎙️</div>
-     <div class="news-content">
-      <span class="category">SPECIAL STORY</span>
-      <h3>প্রতিভাবান খেলোয়াড়দের অজানা গল্প তুলে ধরবে ABsports</h3>
-      <p>সংগ্রাম, অর্জন ও স্বপ্নের গল্প নিয়ে বিশেষ প্রতিবেদন।</p>
-     </div>
-    </article>
-   </div>
-  </div>
- </section>
-
- <section class="section" id="live">
-  <div class="container">
-   <div class="section-head">
-    <h2>লাইভ কভারেজ</h2>
-    <span>LIVE COVERAGE</span>
-   </div>
-
-   <div class="live-box">
-    <div>
-     <span class="live-label">● ABSPORTS LIVE</span>
-     <h2>খেলা দেখুন, মাঠের সঙ্গেই থাকুন</h2>
-     <p>লাইভ সম্প্রচারের লিংক যুক্ত হলে এখানে সরাসরি খেলা দেখা যাবে।</p>
-     <a class="primary-btn" href="https://www.youtube.com/@ABSports024" target="_blank" rel="noopener">YouTube চ্যানেল →</a>
+  <section class="section" id="live">
+    <div class="container">
+      <div class="section-head">
+        <h2>লাইভ কভারেজ</h2>
+        <span>LIVE COVERAGE</span>
+      </div>
+      <div class="live-box">
+        <span class="live-label">● ABSPORTS LIVE</span>
+        <h2>খেলা দেখুন, মাঠের সঙ্গেই থাকুন</h2>
+        <p class="muted">স্থানীয় ফুটবল ও ক্রিকেট টুর্নামেন্টের লাইভ আপডেট পেতে আমাদের সঙ্গে থাকুন।</p>
+        <a class="btn" href="https://www.youtube.com/@ABSports024" target="_blank" rel="noopener">YouTube দেখুন</a>
+      </div>
     </div>
-    <div class="live-icon">📡</div>
-   </div>
-  </div>
- </section>
+  </section>
 
- <section class="section" id="match">
-  <div class="container">
-   <div class="section-head">
-    <h2>ম্যাচ সেন্টার</h2>
-    <span>MATCH CENTER</span>
-   </div>
-
-   <div class="match-grid">
-    <div class="match-card">
-     <h3>⚽ Football</h3>
-     <p>ম্যাচের সময়সূচি ও ফলাফল এখানে প্রকাশ করা হবে।</p>
-     <span class="match-status">FIXTURES & RESULTS</span>
+  <section class="section" id="matches">
+    <div class="container">
+      <div class="section-head">
+        <h2>ম্যাচ সেন্টার</h2>
+        <span>MATCH CENTER</span>
+      </div>
+      <div class="match-grid">
+        <div class="match-card">
+          <h3>⚽ ফুটবল</h3>
+          <p class="muted">ম্যাচের ফিক্সচার ও ফলাফল</p>
+        </div>
+        <div class="match-card">
+          <h3>🏏 ক্রিকেট</h3>
+          <p class="muted">ম্যাচের স্কোর ও আপডেট</p>
+        </div>
+      </div>
     </div>
-    <div class="match-card">
-     <h3>🏏 Cricket</h3>
-     <p>ক্রিকেট ম্যাচের স্কোর ও ফলাফল এখানে প্রকাশ করা হবে।</p>
-     <span class="match-status">SCORE & RESULTS</span>
-    </div>
-   </div>
-  </div>
- </section>
+  </section>
 
- <section class="section" id="players">
-  <div class="container">
-   <div class="section-head">
-    <h2>খেলোয়াড়দের গল্প</h2>
-    <span>PLAYER STORIES</span>
-   </div>
-
-   <div class="player-box">
-    <div class="player-icon">🌟</div>
-    <div>
-     <h3>প্রতিভার গল্প, স্বপ্নের গল্প</h3>
-     <p>স্থানীয় ও উদীয়মান খেলোয়াড়দের জীবনকাহিনি এবং অর্জন তুলে ধরবে ABsports।</p>
+  <section class="section" id="players">
+    <div class="container">
+      <div class="section-head">
+        <h2>খেলোয়াড়দের গল্প</h2>
+        <span>PLAYER STORIES</span>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>🌟 প্রতিভাবান খেলোয়াড়</h3>
+          <p class="muted">স্থানীয় ও উদীয়মান খেলোয়াড়দের পরিচিতি ও অর্জনের গল্প।</p>
+        </div>
+        <div class="info-card">
+          <h3>🏆 বিশেষ প্রতিবেদন</h3>
+          <p class="muted">সংগ্রাম, সাফল্য ও স্বপ্নের গল্প তুলে ধরবে ABsports।</p>
+        </div>
+        <div class="info-card">
+          <h3>📣 নিজের গল্প তুলে ধরুন</h3>
+          <p class="muted">আপনার ফুটবল জীবনের গল্প নিয়ে ভিডিও করতে যোগাযোগ করুন।</p>
+        </div>
+      </div>
     </div>
-   </div>
-  </div>
- </section>
+  </section>
 
- <section class="section" id="contact">
-  <div class="container">
-   <div class="section-head">
-    <h2>আমাদের সঙ্গে থাকুন</h2>
-    <span>CONNECT WITH US</span>
-   </div>
-
-   <div class="contact-grid">
-    <div class="contact-card">
-     <h3>▶ YouTube</h3>
-     <p>ABsports Official Channel</p>
-     <a class="primary-btn" href="https://www.youtube.com/@ABSports024" target="_blank" rel="noopener">Visit Channel →</a>
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>যোগাযোগ</h2>
+        <span>CONTACT ABSPORTS</span>
+      </div>
+      <div class="info-card">
+        <p>প্রমোশন, টুর্নামেন্ট লাইভ কভারেজ ও খেলোয়াড়দের জীবনকাহিনি নিয়ে ভিডিও করতে যোগাযোগ করুন।</p>
+        <p style="margin-top:12px">WhatsApp: <a href="https://wa.me/8801312245754" style="color:var(--orange)">01312245754</a></p>
+        <p style="margin-top:8px"><a href="https://www.youtube.com/@ABSports024" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.facebook.com/ABsports" target="_blank" rel="noopener">Facebook</a></p>
+      </div>
     </div>
-    <div class="contact-card">
-     <h3>📱 WhatsApp</h3>
-     <p>প্রমোশন, লাইভ কভারেজ ও যোগাযোগের জন্য।</p>
-     <a class="primary-btn" href="https://wa.me/8801312245754" target="_blank" rel="noopener">Contact Us →</a>
-    </div>
-   </div>
-  </div>
- </section>
+  </section>
 </main>
 
 <footer>
- <div class="container">
-  <div class="footer-row">
-   <div>
-    <div class="logo">AB<b>SPORTS</b></div>
-    <p>সবধরনের খেলার সর্বশেষ আপডেট</p>
-   </div>
-   <p>Football • Cricket • Tournament • Live Coverage</p>
+  <div class="container footer-row">
+    <div>
+      <div class="logo">AB<span>SPORTS</span></div>
+      <p>সবধরনের খেলার সর্বশেষ আপডেট।</p>
+    </div>
+    <p>© 2026 ABsports. All Rights Reserved.</p>
   </div>
-  <div class="footer-bottom">
-   © 2026 ABsports. All Rights Reserved.
-  </div>
- </div>
 </footer>
+
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
-  import { getAuth } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+import {
+  getFirestore, collection, getDocs, query, where
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyB_wjGaaDPBTMnu9l_exfte2CVC-pc_qAo",
-    authDomain: "absports-official.firebaseapp.com",
-    projectId: "absports-official",
-    storageBucket: "absports-official.firebasestorage.app",
-    messagingSenderId: "868147335497",
-    appId: "1:868147335497:web:bd2d35210622ebbc36ca98"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyB_wjGaaDPBTMnu9l_exfte2CVC-pc_qAo",
+  authDomain: "absports-official.firebaseapp.com",
+  projectId: "absports-official",
+  storageBucket: "absports-official.firebasestorage.app",
+  messagingSenderId: "868147335497",
+  appId: "1:868147335497:web:bd2d35210622ebbc36ca98"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const auth = getAuth(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function loadNews(){
+  const box = document.getElementById("firebase-news");
+  try{
+    const q = query(
+      collection(db,"news"),
+      where("published","==",true)
+    );
+    const snapshot = await getDocs(q);
+    box.replaceChildren();
+
+    if(snapshot.empty){
+      box.textContent = "এখনো কোনো নিউজ প্রকাশ করা হয়নি।";
+      return;
+    }
+
+    snapshot.forEach((item)=>{
+      const data = item.data();
+      const card = document.createElement("article");
+      card.className = "news-card";
+
+      const image = document.createElement("div");
+      image.className = "news-image";
+      image.textContent = "⚽";
+
+      const content = document.createElement("div");
+      content.className = "news-content";
+
+      const category = document.createElement("span");
+      category.className = "category";
+      category.textContent = data.category || "SPORTS NEWS";
+
+      const title = document.createElement("h3");
+      title.textContent = data.title || "শিরোনাম নেই";
+
+      const description = document.createElement("p");
+      description.textContent = data.description || "বিস্তারিত জানতে ABsports-এর সঙ্গে থাকুন।";
+
+      content.append(category,title,description);
+      card.append(image,content);
+      box.append(card);
+    });
+  }catch(error){
+    console.error("Firebase error:",error);
+    box.textContent = "নিউজ লোড করা যায়নি। Firebase Rules পরীক্ষা করুন।";
+  }
+}
+loadNews();
 </script>
+
 </body>
 </html>
