@@ -426,6 +426,23 @@ footer p{font-size:13px;color:var(--muted);margin-top:8px}
   </div>
  </div>
 </footer>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyB_wjGaaDPBTMnu9l_exfte2CVC-pc_qAo",
+    authDomain: "absports-official.firebaseapp.com",
+    projectId: "absports-official",
+    storageBucket: "absports-official.firebasestorage.app",
+    messagingSenderId: "868147335497",
+    appId: "1:868147335497:web:bd2d35210622ebbc36ca98"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const auth = getAuth(app);
+</script>
 </body>
 </html>
