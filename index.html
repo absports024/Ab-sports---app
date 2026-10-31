@@ -3,300 +3,412 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ABsports | Sports News & Live Coverage</title>
-<meta name="description" content="ABsports - সর্বশেষ ফুটবল, ক্রিকেট, স্থানীয় টুর্নামেন্ট ও খেলোয়াড়দের খবর।">
+<meta name="theme-color" content="#07152d">
+<title>ABsports | Sports Streaming</title>
+
 <style>
-:root{
-  --bg:#071525;
-  --panel:#10243a;
-  --line:#203b56;
-  --text:#f4f7fb;
-  --muted:#a9bbce;
-  --orange:#ff9d24;
-  --blue:#1676d2;
-}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,"Noto Sans Bengali",sans-serif;
-  line-height:1.6;
-}
-a{text-decoration:none;color:inherit}
-.container{width:min(1120px,92%);margin:auto}
-header{
-  background:#0b1d30;
-  border-bottom:1px solid var(--line);
-  position:sticky;top:0;z-index:10;
-}
-.nav{
-  min-height:70px;
-  display:flex;align-items:center;
-  justify-content:space-between;gap:15px;
-}
-.logo{font-size:26px;font-weight:900;color:white}
+body{font-family:Arial,sans-serif;background:#071225;color:#fff}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+button{cursor:pointer}
+:root{--orange:#ff7918;--panel:#102342;--muted:#a9bad1}
+header{background:#0b1d3a;border-bottom:2px solid var(--orange);position:sticky;top:0;z-index:10}
+.nav{max-width:1200px;margin:auto;padding:15px 4%;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:27px;font-weight:900;letter-spacing:1px}
 .logo span{color:var(--orange)}
-nav{display:flex;gap:18px;flex-wrap:wrap}
-nav a{font-size:14px;color:#dce7f2}
-nav a:hover{color:var(--orange)}
-.hero{padding:65px 0 45px}
-.hero-box{
-  background:linear-gradient(120deg,#153b61,#10243a);
-  border:1px solid var(--line);
-  border-radius:18px;padding:35px;
-}
-.eyebrow{color:var(--orange);font-weight:bold;font-size:13px}
-h1{font-size:clamp(29px,5vw,47px);line-height:1.3;margin:13px 0}
-.hero p{color:#d0dbea;max-width:650px}
-.btn{
-  display:inline-block;background:var(--orange);
-  color:#152235;padding:11px 19px;
-  border-radius:7px;font-weight:bold;margin-top:20px;
-}
-.section{padding:30px 0}
-.section-head{
-  display:flex;justify-content:space-between;
-  align-items:center;gap:12px;
-  border-bottom:1px solid var(--line);
-  padding-bottom:12px;margin-bottom:20px;
-}
-.section-head h2{font-size:23px}
-.section-head span{font-size:12px;color:var(--orange)}
-.news-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:17px;
-}
-.news-card,.info-card,.match-card{
-  background:var(--panel);border:1px solid var(--line);
-  border-radius:12px;overflow:hidden;
-}
-.news-card{transition:.2s}
-.news-card:hover{transform:translateY(-4px);border-color:var(--orange)}
-.news-image{
-  height:155px;display:flex;align-items:center;
-  justify-content:center;font-size:50px;
-  background:linear-gradient(135deg,#173d62,#0b1c32);
-}
-.news-content{padding:17px}
-.category{color:var(--orange);font-size:11px;font-weight:bold}
-.news-content h3{font-size:18px;line-height:1.5;margin:7px 0}
-.news-content p,.muted{font-size:13px;color:var(--muted)}
-.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.info-card{padding:20px}
-.info-card h3{margin-bottom:7px}
-.live-box{
-  background:linear-gradient(120deg,#17385a,#10243a);
-  border:1px solid var(--line);border-radius:14px;padding:25px;
-}
-.live-label{color:#ff665e;font-weight:bold;font-size:12px}
-.match-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.match-card{padding:20px;text-align:center}
-.match-card h3{margin-bottom:8px}
-footer{
-  margin-top:40px;background:#091827;
-  border-top:1px solid var(--line);padding:30px 0;
-}
-.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer p{color:var(--muted);font-size:13px}
-footer a{color:var(--orange)}
-@media(max-width:750px){
-  .nav{padding:12px 0;align-items:flex-start;flex-direction:column}
-  nav{gap:12px}
-  .news-grid,.info-grid{grid-template-columns:1fr}
-  .match-grid{grid-template-columns:1fr}
-  .hero{padding-top:30px}
-  .hero-box{padding:24px}
+nav{display:flex;gap:17px;flex-wrap:wrap}
+nav a{font-size:13px;color:#dce6f5}
+nav a:hover,.active{color:var(--orange)}
+.menu{display:none;background:none;color:white;border:0;font-size:25px}
+main{max-width:1200px;margin:auto;padding:0 4%}
+.hero{margin:25px 0 35px;padding:55px 20px;text-align:center;border-radius:16px;background:linear-gradient(120deg,#102c55,#071225);border:1px solid #23436c}
+.hero h1{font-size:clamp(30px,6vw,55px);font-weight:900}
+.hero h1 span{color:var(--orange)}
+.hero p{color:var(--muted);margin-top:12px}
+.section{padding:20px 0 30px}
+.heading{font-size:24px;margin-bottom:20px;border-left:5px solid var(--orange);padding-left:12px}
+.subheading{font-size:18px;color:#ff9a4d;margin:18px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:var(--panel);border:1px solid #203b60;border-radius:12px;overflow:hidden}
+.thumb{height:180px;background:linear-gradient(135deg,#183f70,#09172e);position:relative;display:flex;align-items:center;justify-content:center}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.play{font-size:36px;color:var(--orange)}
+.tag{position:absolute;top:12px;left:12px;background:#dc2525;padding:6px 10px;border-radius:4px;font-size:11px;font-weight:bold}
+.content{padding:15px}
+.content h3{font-size:17px;margin-bottom:8px}
+.content p{color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:12px}
+.btn{border:0;background:var(--orange);color:white;padding:11px 16px;border-radius:6px;font-weight:bold}
+.btn:hover{background:#e56508}
+.btn.secondary{background:#203b60}
+.btn.danger{background:#b92b35}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.page{display:none;padding:28px 0 45px}
+.page.show{display:block}
+.player{width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;margin:15px 0}
+.player iframe{width:100%;height:100%;border:0}
+.player video{width:100%;height:100%}
+.field{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #355071;background:#091a32;color:white;border-radius:7px}
+label{font-size:13px;color:#dce6f5}
+.formbox{max-width:650px;background:var(--panel);border:1px solid #203b60;border-radius:12px;padding:20px;margin:15px 0}
+.notice{background:#102342;border:1px solid #29466c;padding:15px;border-radius:8px;color:var(--muted);line-height:1.7;margin:15px 0}
+.empty{color:var(--muted);padding:18px;background:var(--panel);border-radius:8px}
+footer{text-align:center;background:#0b1d3a;padding:25px;color:var(--muted);font-size:13px;border-top:1px solid #203b60}
+footer strong{color:var(--orange)}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){
+ .menu{display:block}
+ nav{display:none;position:absolute;top:65px;left:0;right:0;background:#0b1d3a;padding:18px;flex-direction:column}
+ nav.open{display:flex}
+ nav a{padding:8px}
+ .grid{grid-template-columns:1fr}
+ .hero{padding:40px 15px}
 }
 </style>
 </head>
-<body>
 
+<body>
 <header>
-  <div class="container nav">
-    <a class="logo" href="#home">AB<span>SPORTS</span></a>
-    <nav>
-      <a href="#home">হোম</a>
-      <a href="#news">নিউজ</a>
-      <a href="#live">লাইভ</a>
-      <a href="#matches">ম্যাচ</a>
-      <a href="#players">খেলোয়াড়</a>
-      <a href="#contact">যোগাযোগ</a>
-    </nav>
-  </div>
+ <div class="nav">
+  <a class="logo" href="#home">AB<span>SPORTS</span></a>
+  <button class="menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+  <nav id="nav">
+   <a href="#home">Home</a>
+   <a href="#live">🔴 Live Sports</a>
+   <a href="#highlights">Highlights</a>
+   <a href="#tournaments">Tournaments</a>
+   <a href="#teams">Teams</a>
+   <a href="#admin">Admin</a>
+  </nav>
+ </div>
 </header>
 
-<main id="home">
-  <section class="hero">
-    <div class="container">
-      <div class="hero-box">
-        <span class="eyebrow">WELCOME TO ABSPORTS</span>
-        <h1>খেলার মাঠ থেকে সর্বশেষ সংবাদ, এক ঠিকানায়</h1>
-        <p>ফুটবল, ক্রিকেট, স্থানীয় টুর্নামেন্ট, খেলোয়াড়দের গল্প ও বিশেষ প্রতিবেদন নিয়ে সবসময় আপনার পাশে ABsports।</p>
-        <a class="btn" href="#news">সর্বশেষ খবর দেখুন →</a>
-      </div>
-    </div>
-  </section>
+<main>
+<section id="home" class="page show">
+ <div class="hero">
+  <h1>AB<span>SPORTS</span></h1>
+  <p>Your destination for Local Sports Live & Highlights</p>
+ </div>
+ <section class="section">
+  <h2 class="heading">🔴 LIVE SPORTS</h2>
+  <div id="homeLive" class="grid"></div>
+ </section>
+ <section class="section">
+  <h2 class="heading">▶ MATCH HIGHLIGHTS</h2>
+  <div id="homeHighlights" class="grid"></div>
+ </section>
+</section>
 
-  <section class="section" id="news">
-    <div class="container">
-      <div class="section-head">
-        <h2>সর্বশেষ স্পোর্টস নিউজ</h2>
-        <span>LATEST NEWS</span>
-      </div>
-      <div class="news-grid" id="firebase-news">
-        <p class="muted">নিউজ লোড হচ্ছে...</p>
-      </div>
-    </div>
-  </section>
+<section id="live" class="page">
+ <h2 class="heading">🔴 LIVE SPORTS</h2>
+ <h3 class="subheading">🇧🇩 Local Live Matches</h3>
+ <div id="liveList" class="grid"></div>
+</section>
 
-  <section class="section" id="live">
-    <div class="container">
-      <div class="section-head">
-        <h2>লাইভ কভারেজ</h2>
-        <span>LIVE COVERAGE</span>
-      </div>
-      <div class="live-box">
-        <span class="live-label">● ABSPORTS LIVE</span>
-        <h2>খেলা দেখুন, মাঠের সঙ্গেই থাকুন</h2>
-        <p class="muted">স্থানীয় ফুটবল ও ক্রিকেট টুর্নামেন্টের লাইভ আপডেট পেতে আমাদের সঙ্গে থাকুন।</p>
-        <a class="btn" href="https://www.youtube.com/@ABSports024" target="_blank" rel="noopener">YouTube দেখুন</a>
-      </div>
-    </div>
-  </section>
+<section id="highlights" class="page">
+ <h2 class="heading">▶ HIGHLIGHTS</h2>
+ <h3 class="subheading">🇧🇩 Local Match Highlights</h3>
+ <div id="highlightList" class="grid"></div>
+</section>
 
-  <section class="section" id="matches">
-    <div class="container">
-      <div class="section-head">
-        <h2>ম্যাচ সেন্টার</h2>
-        <span>MATCH CENTER</span>
-      </div>
-      <div class="match-grid">
-        <div class="match-card">
-          <h3>⚽ ফুটবল</h3>
-          <p class="muted">ম্যাচের ফিক্সচার ও ফলাফল</p>
-        </div>
-        <div class="match-card">
-          <h3>🏏 ক্রিকেট</h3>
-          <p class="muted">ম্যাচের স্কোর ও আপডেট</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="tournaments" class="page">
+ <h2 class="heading">🏆 Tournaments</h2>
+ <div id="tournamentList" class="grid"></div>
+</section>
 
-  <section class="section" id="players">
-    <div class="container">
-      <div class="section-head">
-        <h2>খেলোয়াড়দের গল্প</h2>
-        <span>PLAYER STORIES</span>
-      </div>
-      <div class="info-grid">
-        <div class="info-card">
-          <h3>🌟 প্রতিভাবান খেলোয়াড়</h3>
-          <p class="muted">স্থানীয় ও উদীয়মান খেলোয়াড়দের পরিচিতি ও অর্জনের গল্প।</p>
-        </div>
-        <div class="info-card">
-          <h3>🏆 বিশেষ প্রতিবেদন</h3>
-          <p class="muted">সংগ্রাম, সাফল্য ও স্বপ্নের গল্প তুলে ধরবে ABsports।</p>
-        </div>
-        <div class="info-card">
-          <h3>📣 নিজের গল্প তুলে ধরুন</h3>
-          <p class="muted">আপনার ফুটবল জীবনের গল্প নিয়ে ভিডিও করতে যোগাযোগ করুন।</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="teams" class="page">
+ <h2 class="heading">⚽ Teams</h2>
+ <div id="teamList" class="grid"></div>
+</section>
 
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-head">
-        <h2>যোগাযোগ</h2>
-        <span>CONTACT ABSPORTS</span>
-      </div>
-      <div class="info-card">
-        <p>প্রমোশন, টুর্নামেন্ট লাইভ কভারেজ ও খেলোয়াড়দের জীবনকাহিনি নিয়ে ভিডিও করতে যোগাযোগ করুন।</p>
-        <p style="margin-top:12px">WhatsApp: <a href="https://wa.me/8801312245754" style="color:var(--orange)">01312245754</a></p>
-        <p style="margin-top:8px"><a href="https://www.youtube.com/@ABSports024" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.facebook.com/ABsports" target="_blank" rel="noopener">Facebook</a></p>
-      </div>
-    </div>
-  </section>
+<section id="watch" class="page">
+ <button class="btn secondary" onclick="history.back()">← Back</button>
+ <h2 id="watchTitle" class="heading" style="margin-top:20px">Video</h2>
+ <div id="videoPlayer" class="player"></div>
+ <p id="watchInfo" style="color:var(--muted);line-height:1.8"></p>
+</section>
+
+<section id="admin" class="page">
+ <h2 class="heading">ADMIN PANEL</h2>
+ <div class="notice">
+  Admin হিসেবে লগইন করে Local Live, Highlights, Tournament ও Team যোগ করতে পারবি।
+  লাইভ সার্ভার সংযুক্ত হলে PRISM-এর সম্প্রচারও এখানে দেখানো যাবে।
+ </div>
+
+ <div id="loginBox" class="formbox">
+  <h3>Admin Login</h3>
+  <label>Email</label>
+  <input id="email" class="field" type="email" placeholder="Admin email">
+  <label>Password</label>
+  <input id="password" class="field" type="password" placeholder="Password">
+  <button class="btn" onclick="login()">LOGIN</button>
+  <p id="loginMessage" style="margin-top:12px;color:#ff9a4d"></p>
+ </div>
+
+ <div id="adminPanel" style="display:none">
+  <div class="actions" style="margin-bottom:20px">
+   <button class="btn secondary" onclick="logout()">LOG OUT</button>
+  </div>
+
+  <div class="formbox">
+   <h3>Add Live / Highlights</h3>
+   <label>Video Type</label>
+   <select id="videoType" class="field">
+    <option value="live">Live Sports</option>
+    <option value="highlight">Highlights</option>
+   </select>
+   <label>Tournament Name</label>
+   <input id="vTournament" class="field" placeholder="যেমন: Pragati Cup 2026">
+   <label>Team Names</label>
+   <input id="vTeams" class="field" placeholder="যেমন: Team A vs Team B">
+   <label>Video Title</label>
+   <input id="vTitle" class="field" placeholder="ভিডিওর নাম">
+   <label>YouTube Video / Live Embed Link</label>
+   <input id="vUrl" class="field" placeholder="YouTube link">
+   <label>Thumbnail Image URL (optional)</label>
+   <input id="vImage" class="field" placeholder="Image link">
+   <button class="btn" onclick="addVideo()">PUBLISH VIDEO</button>
+   <p id="videoMessage" style="margin-top:12px;color:#ff9a4d"></p>
+  </div>
+
+  <div class="formbox">
+   <h3>Add Tournament</h3>
+   <input id="tName" class="field" placeholder="Tournament name">
+   <button class="btn" onclick="addTournament()">ADD TOURNAMENT</button>
+  </div>
+
+  <div class="formbox">
+   <h3>Add Team</h3>
+   <input id="teamName" class="field" placeholder="Team name">
+   <button class="btn" onclick="addTeam()">ADD TEAM</button>
+  </div>
+
+  <h3 class="subheading">Manage Published Videos</h3>
+  <div id="manageVideos" class="grid"></div>
+ </div>
+</section>
 </main>
 
 <footer>
-  <div class="container footer-row">
-    <div>
-      <div class="logo">AB<span>SPORTS</span></div>
-      <p>সবধরনের খেলার সর্বশেষ আপডেট।</p>
-    </div>
-    <p>© 2026 ABsports. All Rights Reserved.</p>
-  </div>
+ <strong>ABSPORTS</strong>
+ <p style="margin-top:8px">Local Sports Live & Highlights</p>
+ <p style="margin-top:8px">© 2026 ABsports. All Rights Reserved.</p>
 </footer>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
 import {
-  getFirestore, collection, getDocs, query, where
+ getFirestore, collection, addDoc, getDocs, query, where,
+ orderBy, deleteDoc, doc, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+import {
+ getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB_wjGaaDPBTMnu9l_exfte2CVC-pc_qAo",
-  authDomain: "absports-official.firebaseapp.com",
-  projectId: "absports-official",
-  storageBucket: "absports-official.firebasestorage.app",
-  messagingSenderId: "868147335497",
-  appId: "1:868147335497:web:bd2d35210622ebbc36ca98"
+ apiKey: "AIzaSyB_wjGaaDPBTMnu9l_exfte2CVC-pc_qAo",
+ authDomain: "absports-official.firebaseapp.com",
+ projectId: "absports-official",
+ storageBucket: "absports-official.firebasestorage.app",
+ messagingSenderId: "868147335497",
+ appId: "1:868147335497:web:bd2d35210622ebbc36ca98"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
-async function loadNews(){
-  const box = document.getElementById("firebase-news");
-  try{
-    const q = query(
-      collection(db,"news"),
-      where("published","==",true)
-    );
-    const snapshot = await getDocs(q);
-    box.replaceChildren();
+const $ = id => document.getElementById(id);
+let videos = [];
+let tournaments = [];
+let teams = [];
 
-    if(snapshot.empty){
-      box.textContent = "এখনো কোনো নিউজ প্রকাশ করা হয়নি।";
-      return;
-    }
-
-    snapshot.forEach((item)=>{
-      const data = item.data();
-      const card = document.createElement("article");
-      card.className = "news-card";
-
-      const image = document.createElement("div");
-      image.className = "news-image";
-      image.textContent = "⚽";
-
-      const content = document.createElement("div");
-      content.className = "news-content";
-
-      const category = document.createElement("span");
-      category.className = "category";
-      category.textContent = data.category || "SPORTS NEWS";
-
-      const title = document.createElement("h3");
-      title.textContent = data.title || "শিরোনাম নেই";
-
-      const description = document.createElement("p");
-      description.textContent = data.description || "বিস্তারিত জানতে ABsports-এর সঙ্গে থাকুন।";
-
-      content.append(category,title,description);
-      card.append(image,content);
-      box.append(card);
-    });
-  }catch(error){
-    console.error("Firebase error:",error);
-    box.textContent = "নিউজ লোড করা যায়নি। Firebase Rules পরীক্ষা করুন।";
-  }
+function safeText(value=""){
+ return String(value).replace(/[&<>"']/g, c => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[c]));
 }
-loadNews();
-</script>
 
+function youtubeEmbed(url){
+ try{
+  const u = new URL(url);
+  let id = "";
+  if(u.hostname.includes("youtu.be")) id = u.pathname.slice(1);
+  else if(u.hostname.includes("youtube.com")){
+   if(u.pathname === "/watch") id = u.searchParams.get("v");
+   else if(u.pathname.startsWith("/embed/")) id = u.pathname.split("/")[2];
+   else if(u.pathname.startsWith("/live/")) id = u.pathname.split("/")[2];
+  }
+  if(!id || !/^[\w-]{11}$/.test(id)) return "";
+  return "https://www.youtube-nocookie.com/embed/" + id;
+ }catch(e){return ""}
+}
+
+function card(v){
+ const image = v.thumbnail
+  ? `<img src="${safeText(v.thumbnail)}" alt="">`
+  : `<span class="play">▶</span>`;
+ const label = v.type === "live" ? "🔴 LIVE" : "HIGHLIGHTS";
+ return `<article class="card">
+  <div class="thumb">${image}<span class="tag">${label}</span></div>
+  <div class="content">
+   <h3>${safeText(v.title)}</h3>
+   <p>${safeText(v.tournament || "Local")}<br>${safeText(v.teams || "")}</p>
+   <button class="btn" onclick="watchVideo('${v.id}')">WATCH NOW ▶</button>
+  </div></article>`;
+}
+
+window.watchVideo = id => {
+ const v = videos.find(x => x.id === id);
+ if(!v) return;
+ const embed = youtubeEmbed(v.videoUrl);
+ $("watchTitle").textContent = v.title || "ABsports Video";
+ $("watchInfo").textContent = (v.tournament || "") + " • " + (v.teams || "");
+ $("videoPlayer").innerHTML = embed
+  ? `<iframe src="${embed}" title="ABsports video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`
+  : `<p style="padding:20px;color:white">এই ভিডিওর লিংকটি এখনো সংযুক্ত হয়নি।</p>`;
+ location.hash = "watch";
+};
+
+function renderList(id, list){
+ $(id).innerHTML = list.length ? list.map(card).join("") :
+  `<div class="empty">এখনো কোনো ভিডিও প্রকাশ করা হয়নি।</div>`;
+}
+
+async function loadVideos(){
+ try{
+  const q = query(collection(db,"videos"),where("published","==",true));
+  const snap = await getDocs(q);
+  videos = snap.docs.map(d=>({id:d.id,...d.data()}));
+  renderList("liveList",videos.filter(v=>v.type==="live"));
+  renderList("highlightList",videos.filter(v=>v.type==="highlight"));
+  renderList("homeLive",videos.filter(v=>v.type==="live").slice(0,3));
+  renderList("homeHighlights",videos.filter(v=>v.type==="highlight").slice(0,3));
+  if(auth.currentUser) renderManage();
+ }catch(e){
+  console.error(e);
+  ["liveList","highlightList","homeLive","homeHighlights"].forEach(id=>{
+   $(id).innerHTML='<div class="empty">ভিডিও লোড করা যায়নি। Firebase Rules পরীক্ষা করতে হবে।</div>';
+  });
+ }
+}
+
+async function loadOther(){
+ try{
+  const [ts,ss] = await Promise.all([
+   getDocs(collection(db,"tournaments")),
+   getDocs(collection(db,"teams"))
+  ]);
+  tournaments = ts.docs.map(d=>d.data());
+  teams = ss.docs.map(d=>d.data());
+  $("tournamentList").innerHTML = tournaments.length
+   ? tournaments.map(x=>`<article class="card content"><h3>🏆 ${safeText(x.name)}</h3></article>`).join("")
+   : '<div class="empty">এখনো টুর্নামেন্ট যোগ করা হয়নি।</div>';
+  $("teamList").innerHTML = teams.length
+   ? teams.map(x=>`<article class="card content"><h3>⚽ ${safeText(x.name)}</h3></article>`).join("")
+   : '<div class="empty">এখনো কোনো দল যোগ করা হয়নি।</div>';
+ }catch(e){console.error(e)}
+}
+
+window.login = async ()=>{
+ $("loginMessage").textContent="লগইন হচ্ছে...";
+ try{
+  await signInWithEmailAndPassword(auth,$("email").value,$("password").value);
+  $("loginMessage").textContent="";
+ }catch(e){
+  $("loginMessage").textContent="লগইন হয়নি: "+e.message;
+ }
+};
+
+window.logout = ()=>signOut(auth);
+
+onAuthStateChanged(auth,user=>{
+ $("loginBox").style.display = user ? "none":"block";
+ $("adminPanel").style.display = user ? "block":"none";
+ if(user) renderManage();
+});
+
+window.addVideo = async ()=>{
+ const title=$("vTitle").value.trim();
+ const url=$("vUrl").value.trim();
+ const type=$("videoType").value;
+ if(!title || !url){$("videoMessage").textContent="ভিডিওর নাম ও লিংক দে।";return}
+ if(!youtubeEmbed(url)){
+  $("videoMessage").textContent="সঠিক YouTube ভিডিও/লাইভ লিংক দে।";
+  return;
+ }
+ try{
+  await addDoc(collection(db,"videos"),{
+   title,
+   videoUrl:url,
+   type,
+   scope:"local",
+   tournament:$("vTournament").value.trim(),
+   teams:$("vTeams").value.trim(),
+   thumbnail:$("vImage").value.trim(),
+   published:true,
+   createdAt:serverTimestamp()
+  });
+  $("videoMessage").textContent="ভিডিও প্রকাশ হয়েছে!";
+  ["vTitle","vUrl","vTournament","vTeams","vImage"].forEach(id=>$(id).value="");
+  await loadVideos();
+ }catch(e){$("videoMessage").textContent="সমস্যা: "+e.message}
+};
+
+window.addTournament = async ()=>{
+ const name=$("tName").value.trim();
+ if(!name)return alert("টুর্নামেন্টের নাম দে");
+ try{
+  await addDoc(collection(db,"tournaments"),{name,createdAt:serverTimestamp()});
+  $("tName").value="";
+  await loadOther();
+ }catch(e){alert(e.message)}
+};
+
+window.addTeam = async ()=>{
+ const name=$("teamName").value.trim();
+ if(!name)return alert("দলের নাম দে");
+ try{
+  await addDoc(collection(db,"teams"),{name,createdAt:serverTimestamp()});
+  $("teamName").value="";
+  await loadOther();
+ }catch(e){alert(e.message)}
+};
+
+async function renderManage(){
+ if(!auth.currentUser)return;
+ const own = videos;
+ $("manageVideos").innerHTML = own.length ? own.map(v=>`
+  <article class="card content">
+   <h3>${safeText(v.title)}</h3>
+   <p>${safeText(v.type)} • ${safeText(v.tournament || "")}</p>
+   <button class="btn danger" onclick="deleteVideo('${v.id}')">DELETE</button>
+  </article>`).join("") : '<div class="empty">কোনো ভিডিও নেই।</div>';
+}
+
+window.deleteVideo = async id=>{
+ if(!confirm("ভিডিওটি মুছে ফেলবি?"))return;
+ try{
+  await deleteDoc(doc(db,"videos",id));
+  await loadVideos();
+ }catch(e){alert(e.message)}
+};
+
+function route(){
+ const id=(location.hash||"#home").slice(1);
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("show"));
+ const page=$(id);
+ (page || $("home")).classList.add("show");
+ document.querySelectorAll("nav a").forEach(a=>{
+  a.classList.toggle("active",a.getAttribute("href")==="#"+id);
+ });
+ $("nav").classList.remove("open");
+ window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+route();
+loadVideos();
+loadOther();
+</script>
 </body>
-</html>
+   </html>
