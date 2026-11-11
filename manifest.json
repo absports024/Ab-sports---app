@@ -1,1 +1,19 @@
-
+{
+  "name": "ABsports Official",
+  "short_name": "ABsports",
+  "description": "ABsports Official Sports App",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#071225",
+  "theme_color": "#071225",
+  "icons": [
+    {
+      "src": "./absports-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}Create custom icon for ABsports Android app.
